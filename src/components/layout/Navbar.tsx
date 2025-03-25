@@ -48,7 +48,7 @@ const Navbar = () => {
               alt="Fine Engineering" 
               className="h-10 mr-2"
             />
-            <h1 className="text-2xl font-bold text-[#474454] dark:text-white">
+            <h1 className={`text-2xl font-bold ${scrolled ? "text-[#001a36] dark:text-white" : "text-white"}`}>
               <span className="text-[#d0bc8f]">Engineering</span>
             </h1>
           </Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
                 className={`font-medium transition-colors hover:text-[#d0bc8f] ${
                   location.pathname === link.path
                     ? "text-[#d0bc8f]"
-                    : "text-[#474454] dark:text-white"
+                    : scrolled ? "text-[#001a36] dark:text-white" : "text-white"
                 }`}
               >
                 {link.name}
@@ -73,7 +73,7 @@ const Navbar = () => {
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
-              className="ml-2"
+              className={`ml-2 ${!scrolled && "border-white text-white hover:bg-white hover:text-[#001a36]"}`}
             >
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
@@ -90,6 +90,7 @@ const Navbar = () => {
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
+              className={`${!scrolled && "border-white text-white hover:bg-white hover:text-[#001a36]"}`}
             >
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
@@ -100,7 +101,11 @@ const Navbar = () => {
 
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  className={`${!scrolled && "border-white text-white hover:bg-white hover:text-[#001a36]"}`}
+                >
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -123,7 +128,7 @@ const Navbar = () => {
                       className={`text-lg font-medium transition-colors hover:text-[#d0bc8f] ${
                         location.pathname === link.path
                           ? "text-[#d0bc8f]"
-                          : "text-[#474454] dark:text-white"
+                          : "text-[#001a36] dark:text-white"
                       }`}
                     >
                       {link.name}

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import GreetingModal from "@/components/GreetingModal";
 import Chatbot from "@/components/Chatbot";
@@ -13,6 +13,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 const Home = () => {
   const [showGreeting, setShowGreeting] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // Show greeting modal after 1.5 seconds
@@ -20,7 +21,20 @@ const Home = () => {
       setShowGreeting(true);
     }, 1500);
 
-    return () => clearTimeout(timer);
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const services = [
@@ -48,63 +62,79 @@ const Home = () => {
     {
       id: 1,
       title: "Maahad Daawah Organization",
-      description: "14-floor commercial/residential building",
+      description: "14-floor commercial/residential building with modern architecture and amenities.",
       category: "Building Works",
       imageUrl: "/placeholder.svg",
     },
     {
       id: 2,
       title: "Associated Vehicle Assemblers Ltd",
-      description: "Construction of Godown, Mombasa",
+      description: "Construction of Godown in Mombasa with state-of-the-art facilities.",
       category: "Structural Works",
       imageUrl: "/placeholder.svg",
     },
     {
       id: 3,
-      title: "Two Rivers Development Ltd",
-      description: "Steel AC platforms installation",
-      category: "Specialized Projects",
+      title: "Nasserpuria Memon Jamat",
+      description: "9-floor apartment & commercial complex with modern amenities.",
+      category: "Building Works",
       imageUrl: "/placeholder.svg",
     },
   ];
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - Updated with deep blue construction background */}
       <section className="relative h-screen flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#474454]/90 to-[#474454]/60 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001a36]/90 to-[#001a36]/70 z-10"></div>
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-[#474454] opacity-70">
-            {/* Video or image background would go here */}
-            <div className="w-full h-full bg-[url('/placeholder.svg')] bg-cover bg-center"></div>
+          <div className="w-full h-full">
+            <img 
+              src="/lovable-uploads/908cdee3-d2b9-45bb-86fb-3a7fe2ad3529.png" 
+              alt="Construction site with cranes" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         <div className="container mx-auto px-4 relative z-20 text-white">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+            <div className="inline-block rounded-full bg-[#d0bc8f]/80 px-4 py-1 text-sm font-medium mb-6 backdrop-blur-sm">
+              Welcome to Fine Engineering Works Ltd
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
               Building Excellence 
-              <span className="text-[#f6cf9a]"> Since 1979</span>
+              <span className="text-[#d0bc8f]"> Since 1979</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200 animate-fade-in">
-              Your Trusted Partner in Engineering & Construction
+            <p className="text-xl md:text-2xl mb-12 text-gray-200 animate-fade-in max-w-2xl">
+              Your Trusted Partner in Engineering & Construction - delivering exceptional structural, building, and road construction projects internationally.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in">
               <Button
                 asChild
-                className="bg-[#d0bc8f] hover:bg-[#c0786a] text-white"
+                className="bg-[#d0bc8f] hover:bg-[#c0786a] text-white rounded-md"
                 size="lg"
               >
-                <Link to="/projects">View Projects</Link>
+                <Link to="/projects" className="flex items-center gap-2">
+                  View Projects <ArrowRight size={16} />
+                </Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-[#474454]"
+                className="border-white text-white hover:bg-white hover:text-[#001a36] rounded-md"
               >
                 <Link to="/contact">Get in Touch</Link>
               </Button>
             </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white flex flex-col items-center animate-pulse">
+          <p className="mb-2 text-sm">Scroll to discover</p>
+          <div className="w-8 h-14 border-2 border-white/50 rounded-full flex justify-center pt-2">
+            <ChevronDown size={20} />
           </div>
         </div>
       </section>
@@ -113,7 +143,7 @@ const Home = () => {
       <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#474454] dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#001a36] dark:text-white">
               Our Services
             </h2>
             <div className="w-24 h-1 bg-[#d0bc8f] mx-auto mt-4 mb-6"></div>
@@ -132,7 +162,7 @@ const Home = () => {
             <Button
               asChild
               variant="outline"
-              className="border-[#d0bc8f] text-[#474454] hover:bg-[#d0bc8f] hover:text-white dark:text-white"
+              className="border-[#d0bc8f] text-[#001a36] hover:bg-[#d0bc8f] hover:text-white dark:text-white"
             >
               <Link to="/services" className="flex items-center gap-2">
                 View All Services <ArrowRight size={16} />
@@ -147,7 +177,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#474454] dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#001a36] dark:text-white mb-6">
                 About Fine Engineering Works Ltd
               </h2>
               <div className="w-24 h-1 bg-[#d0bc8f] mb-6"></div>
@@ -171,7 +201,7 @@ const Home = () => {
             <div className="relative">
               <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
                 <img
-                  src="/placeholder.svg"
+                  src="/lovable-uploads/32b4e699-e55b-4f8f-87ff-3542be16fcce.png"
                   alt="Fine Engineering Works"
                   className="w-full h-full object-cover"
                 />
@@ -182,11 +212,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      {/* Featured Projects - Updated with card design like in the reference */}
+      <section className="py-20 bg-[#f5f5f0] dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#474454] dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#001a36] dark:text-white">
               Featured Projects
             </h2>
             <div className="w-24 h-1 bg-[#d0bc8f] mx-auto mt-4 mb-6"></div>
@@ -195,9 +225,53 @@ const Home = () => {
             </p>
           </div>
 
+          {/* Project Filter Tabs - inspired by the second image */}
+          <div className="flex flex-wrap gap-2 justify-center mb-12">
+            <button className="px-6 py-2 rounded-full bg-[#d0bc8f] text-white">
+              All Projects
+            </button>
+            <button className="px-6 py-2 rounded-full bg-gray-200 hover:bg-[#d0bc8f] hover:text-white text-[#001a36] transition-colors">
+              Building Works
+            </button>
+            <button className="px-6 py-2 rounded-full bg-gray-200 hover:bg-[#d0bc8f] hover:text-white text-[#001a36] transition-colors">
+              Structural Engineering
+            </button>
+            <button className="px-6 py-2 rounded-full bg-gray-200 hover:bg-[#d0bc8f] hover:text-white text-[#001a36] transition-colors">
+              Road Works
+            </button>
+            <button className="px-6 py-2 rounded-full bg-gray-200 hover:bg-[#d0bc8f] hover:text-white text-[#001a36] transition-colors">
+              Specialized Projects
+            </button>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+                <div className="h-64 overflow-hidden">
+                  <img 
+                    src={project.imageUrl} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="inline-block px-3 py-1 mb-4 text-xs font-medium rounded-full bg-[#f5f5f0] text-[#001a36]">
+                    {project.category}
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#001a36] dark:text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-[#76737c] dark:text-gray-300 mb-4">
+                    {project.description}
+                  </p>
+                  <Link 
+                    to={`/projects/${project.id}`} 
+                    className="text-[#d0bc8f] hover:text-[#c0786a] flex items-center gap-1 text-sm font-medium"
+                  >
+                    View Project Details <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
 
@@ -205,7 +279,7 @@ const Home = () => {
             <Button
               asChild
               variant="outline"
-              className="border-[#d0bc8f] text-[#474454] hover:bg-[#d0bc8f] hover:text-white dark:text-white"
+              className="border-[#d0bc8f] text-[#001a36] hover:bg-[#d0bc8f] hover:text-white dark:text-white"
             >
               <Link to="/projects" className="flex items-center gap-2">
                 View All Projects <ArrowRight size={16} />
@@ -216,7 +290,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-[#474454]">
+      <section className="py-16 bg-[#001a36]">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-8 md:mb-0 text-center md:text-left">
@@ -238,7 +312,7 @@ const Home = () => {
               <Button
                 asChild
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-[#474454]"
+                className="border-white text-white hover:bg-white hover:text-[#001a36]"
                 size="lg"
               >
                 <a
