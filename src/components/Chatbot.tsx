@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { MessageSquare, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useTheme } from "@/hooks/useTheme";
 
 const Chatbot = () => {
   const [open, setOpen] = useState(false);
@@ -17,6 +18,14 @@ const Chatbot = () => {
     { text: string; sender: "user" | "bot" }[]
   >([{ text: "Hi, feel free to ask any questions.", sender: "bot" }]);
   const [input, setInput] = useState("");
+  const { theme } = useTheme();
+
+  // Quick action buttons for common queries
+  const quickActions = [
+    { label: "Services", query: "What services do you offer?" },
+    { label: "Projects", query: "Tell me about your projects" },
+    { label: "Contact", query: "How can I contact you?" },
+  ];
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -44,6 +53,11 @@ const Chatbot = () => {
     setInput("");
   };
 
+  const handleQuickAction = (query: string) => {
+    setInput(query);
+    handleSend();
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleSend();
@@ -56,19 +70,26 @@ const Chatbot = () => {
         <SheetTrigger asChild>
           <Button
             size="icon"
-            className="fixed bottom-24 right-8 z-30 rounded-full bg-[#d0bc8f] hover:bg-[#c0786a] h-12 w-12 shadow-lg"
+            className="fixed bottom-24 right-8 z-30 rounded-full bg-green-500 hover:bg-green-600 h-12 w-12 shadow-lg transition-transform hover:scale-110"
             aria-label="Open chatbot"
           >
-            <MessageSquare size={20} />
+            <MessageSquare size={20} className="text-white" />
           </Button>
         </SheetTrigger>
         <SheetContent className="sm:max-w-md flex flex-col p-0">
-          <SheetHeader className="bg-[#474454] text-white p-4">
+          <SheetHeader className="bg-green-500 text-white p-4">
             <SheetTitle className="text-white flex items-center gap-2">
-              <MessageSquare size={18} /> 
-              <span>Fine Engineering Assistant</span>
+              <div className="flex items-center">
+                <img 
+                  src="/lovable-uploads/7be31390-38b2-4d6c-836b-7e0975b75f8d.png" 
+                  alt="Fine Engineering" 
+                  className="h-8 mr-2 bg-white rounded-full p-1"
+                />
+                <span className="font-semibold">Fine Engineering Assistant</span>
+              </div>
             </SheetTitle>
           </SheetHeader>
+          
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((message, index) => (
               <div
@@ -80,7 +101,7 @@ const Chatbot = () => {
                 <div
                   className={`max-w-[80%] rounded-lg p-3 ${
                     message.sender === "user"
-                      ? "bg-[#d0bc8f] text-white"
+                      ? "bg-green-500 text-white"
                       : "bg-gray-100 dark:bg-gray-800 text-[#474454] dark:text-white"
                   }`}
                 >
@@ -89,6 +110,22 @@ const Chatbot = () => {
               </div>
             ))}
           </div>
+          
+          {/* Quick action buttons */}
+          <div className="p-3 border-t flex flex-wrap gap-2 justify-center">
+            {quickActions.map((action, index) => (
+              <Button
+                key={index}
+                variant="outline"
+                size="sm"
+                className="text-xs border-green-500 text-green-500 hover:bg-green-50 dark:hover:bg-green-900/20"
+                onClick={() => handleQuickAction(action.query)}
+              >
+                {action.label}
+              </Button>
+            ))}
+          </div>
+          
           <div className="p-4 border-t">
             <div className="flex gap-2">
               <Input
@@ -100,10 +137,11 @@ const Chatbot = () => {
               />
               <Button
                 onClick={handleSend}
-                className="bg-[#d0bc8f] hover:bg-[#c0786a]"
+                className="bg-green-500 hover:bg-green-600"
                 size="icon"
+                disabled={!input.trim()}
               >
-                <Send size={18} />
+                <Send size={18} className="text-white" />
               </Button>
             </div>
           </div>

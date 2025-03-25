@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sun, Moon, Menu, X, Phone } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/hooks/useTheme";
 
@@ -43,8 +43,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <h1 className="text-2xl font-bold text-[#474454]">
-              <span className="text-[#d0bc8f]">Fine</span> Engineering
+            <img 
+              src="/lovable-uploads/7be31390-38b2-4d6c-836b-7e0975b75f8d.png" 
+              alt="Fine Engineering" 
+              className="h-10 mr-2"
+            />
+            <h1 className="text-2xl font-bold text-[#474454] dark:text-white">
+              <span className="text-[#d0bc8f]">Engineering</span>
             </h1>
           </Link>
 
@@ -57,7 +62,7 @@ const Navbar = () => {
                 className={`font-medium transition-colors hover:text-[#d0bc8f] ${
                   location.pathname === link.path
                     ? "text-[#d0bc8f]"
-                    : "text-[#474454]"
+                    : "text-[#474454] dark:text-white"
                 }`}
               >
                 {link.name}
@@ -68,6 +73,7 @@ const Navbar = () => {
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
+              className="ml-2"
             >
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
@@ -99,7 +105,17 @@ const Navbar = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col gap-6 pt-10">
+                <div className="flex items-center mb-8">
+                  <img 
+                    src="/lovable-uploads/7be31390-38b2-4d6c-836b-7e0975b75f8d.png" 
+                    alt="Fine Engineering" 
+                    className="h-8 mr-2"
+                  />
+                  <span className="text-xl font-bold">
+                    <span className="text-[#d0bc8f]">Fine</span> Engineering
+                  </span>
+                </div>
+                <nav className="flex flex-col gap-6">
                   {navLinks.map((link) => (
                     <Link
                       key={link.name}
@@ -107,7 +123,7 @@ const Navbar = () => {
                       className={`text-lg font-medium transition-colors hover:text-[#d0bc8f] ${
                         location.pathname === link.path
                           ? "text-[#d0bc8f]"
-                          : "text-[#474454]"
+                          : "text-[#474454] dark:text-white"
                       }`}
                     >
                       {link.name}

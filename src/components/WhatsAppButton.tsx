@@ -14,9 +14,9 @@ const WhatsAppButton = () => {
     >
       <Button
         size="icon"
-        className="rounded-full bg-green-500 hover:bg-green-600 h-12 w-12 shadow-lg"
+        className="rounded-full bg-green-500 hover:bg-green-600 h-12 w-12 shadow-lg transition-transform hover:scale-110"
       >
-        <Phone size={20} />
+        <Phone size={20} className="text-white" />
       </Button>
     </a>
   );

@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/useTheme";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import Chatbot from "@/components/Chatbot";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -38,6 +40,8 @@ const App = () => (
               </Routes>
             </main>
             <Footer />
+            <WhatsAppButton />
+            <Chatbot />
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>
