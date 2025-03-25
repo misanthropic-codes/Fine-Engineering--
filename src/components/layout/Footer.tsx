@@ -127,6 +127,14 @@ const Footer = () => {
             >
               Terms of Service
             </a>
+            <a
+              href="https://devopod.co.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-[#f6cf9a] transition-colors ml-4"
+            >
+              Made by Devopod
+            </a>
           </div>
         </div>
       </div>

@@ -125,4 +125,14 @@
       opacity: 1;
     }
   }
+  
+  /* Hero section text visibility improvements */
+  .hero-text {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .light-mode-visible {
+    @apply text-white dark:text-white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
 }

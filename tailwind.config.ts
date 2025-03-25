@@ -108,7 +108,12 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out'
-			}
+			},
+			textShadow: {
+				sm: '0 1px 2px rgba(0, 0, 0, 0.2)',
+				default: '0 2px 4px rgba(0, 0, 0, 0.3)',
+				lg: '0 2px 8px rgba(0, 0, 0, 0.5)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

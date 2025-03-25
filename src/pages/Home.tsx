@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -84,34 +83,34 @@ const Home = () => {
 
   return (
     <>
-      {/* Hero Section - Updated with deep blue construction background */}
+      {/* Hero Section - Updated with cleaner construction background */}
       <section className="relative h-screen flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#001a36]/90 to-[#001a36]/70 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#001a36]/95 to-[#001a36]/80 z-10"></div>
         <div className="absolute inset-0">
           <div className="w-full h-full">
             <img 
               src="/lovable-uploads/908cdee3-d2b9-45bb-86fb-3a7fe2ad3529.png" 
-              alt="Construction site with cranes" 
+              alt="Construction site" 
               className="w-full h-full object-cover"
             />
           </div>
         </div>
-        <div className="container mx-auto px-4 relative z-20 text-white">
+        <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-3xl">
-            <div className="inline-block rounded-full bg-[#d0bc8f]/80 px-4 py-1 text-sm font-medium mb-6 backdrop-blur-sm">
+            <div className="inline-block rounded-full bg-[#d0bc8f]/80 px-4 py-1 text-sm font-medium mb-6 backdrop-blur-sm light-mode-visible">
               Welcome to Fine Engineering Works Ltd
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 animate-fade-in hero-text light-mode-visible">
               Building Excellence 
               <span className="text-[#d0bc8f]"> Since 1979</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-12 text-gray-200 animate-fade-in max-w-2xl">
+            <p className="text-xl md:text-2xl mb-12 text-gray-200 animate-fade-in max-w-2xl hero-text light-mode-visible">
               Your Trusted Partner in Engineering & Construction - delivering exceptional structural, building, and road construction projects internationally.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in">
               <Button
                 asChild
-                className="bg-[#d0bc8f] hover:bg-[#c0786a] text-white rounded-md"
+                className="bg-[#d0bc8f] hover:bg-[#c0b080] text-white rounded-md"
                 size="lg"
               >
                 <Link to="/projects" className="flex items-center gap-2">
@@ -132,7 +131,7 @@ const Home = () => {
         
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white flex flex-col items-center animate-pulse">
-          <p className="mb-2 text-sm">Scroll to discover</p>
+          <p className="mb-2 text-sm light-mode-visible">Scroll to discover</p>
           <div className="w-8 h-14 border-2 border-white/50 rounded-full flex justify-center pt-2">
             <ChevronDown size={20} />
           </div>
@@ -212,7 +211,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Projects - Updated with card design like in the reference */}
+      {/* Featured Projects */}
       <section className="py-20 bg-[#f5f5f0] dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -225,7 +224,6 @@ const Home = () => {
             </p>
           </div>
 
-          {/* Project Filter Tabs - inspired by the second image */}
           <div className="flex flex-wrap gap-2 justify-center mb-12">
             <button className="px-6 py-2 rounded-full bg-[#d0bc8f] text-white">
               All Projects
