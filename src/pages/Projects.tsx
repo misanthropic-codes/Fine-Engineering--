@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PageHeader from "./Projects/PageHeader";
-import FilterButtons from "./Projects/FilterButtons.tsx";
+import FilterButtons from "./Projects/FilterButtons";
 import ProjectsGrid from "./Projects/ProjectsGrid";
 import OngoingProjectsSection from "./Projects/OngoingProjectsSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
