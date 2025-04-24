@@ -23,7 +23,11 @@ const projects = [
     category: "building",
     location: "Nairobi, Kenya",
     completionYear: 2020,
-    imageUrl: "/placeholder.svg",
+    images: [
+      "https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ]
   },
   {
     id: 2,
@@ -32,7 +36,11 @@ const projects = [
     category: "structural",
     location: "Mombasa, Kenya",
     completionYear: 2019,
-    imageUrl: "/placeholder.svg",
+    images: [
+      "https://images.unsplash.com/photo-1582268612480-c803f4d7a311?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f35678d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ]
   },
   {
     id: 3,
@@ -41,7 +49,11 @@ const projects = [
     category: "building",
     location: "Nairobi, Kenya",
     completionYear: 2018,
-    imageUrl: "/placeholder.svg",
+    images: [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https:// grok-prod-user-uploads.s3.amazonaws.com/1729875297_9f08ab63-8cd9-4e04-b3ae-6b3c2d86fb6d.png"
+    ]
   },
   {
     id: 4,
@@ -50,7 +62,11 @@ const projects = [
     category: "building",
     location: "Nairobi, Kenya",
     completionYear: 2017,
-    imageUrl: "/placeholder.svg",
+    images: [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590402494587-44b67d99b33e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ]
   },
   {
     id: 5,
@@ -59,7 +75,11 @@ const projects = [
     category: "specialized",
     location: "Nairobi, Kenya",
     completionYear: 2021,
-    imageUrl: "/placeholder.svg",
+    images: [
+      "https://images.unsplash.com/photo-1504307651254-35680f35678d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1582268612480-c803f4d7a311?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ]
   },
   {
     id: 6,
@@ -68,7 +88,11 @@ const projects = [
     category: "specialized",
     location: "Nairobi, Kenya",
     completionYear: 2022,
-    imageUrl: "/placeholder.svg",
+    images: [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ]
   },
   {
     id: 7,
@@ -77,7 +101,11 @@ const projects = [
     category: "road",
     location: "Nairobi, Kenya",
     completionYear: 2021,
-    imageUrl: "/placeholder.svg",
+    images: [
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1470217956765-48a3f4eab603?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1497436072909-60f69e1b28b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ]
   },
   {
     id: 8,
@@ -86,8 +114,12 @@ const projects = [
     category: "building",
     location: "Kampala, Uganda",
     completionYear: 2023,
-    imageUrl: "/placeholder.svg",
-  },
+    images: [
+      "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ]
+  }
 ];
 
 const ProjectsPage = () => {
